@@ -1341,6 +1341,11 @@ chrome.runtime.onMessage.addListener(function onBackgroundMessage(msg, sender, _
 function handleApiRequest(request, sendResponse) {
     console.log("Handling API request", request.type);
     switch (request.type) {
+        case "tryJoinRaidDirectly":
+            tryJoinRaidDirectly(request.raidCode, function (ok) {
+                sendResponse(ok);
+            });
+            return true;
         case "tryJoinRaid":
             tryJoinRaid(request.raidCode, function (ok) {
                 sendResponse(ok);

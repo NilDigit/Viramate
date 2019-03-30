@@ -393,6 +393,7 @@ function onRuntimeMessage(msg, sender, sendResponse) {
                     sendResponse(chrome.app.getDetails().version);
                     break;
                 case "tryJoinCoOpRoom":
+                case "tryJoinRaidDirectly":
                 case "tryJoinRaid":
                 case "getCombatState":
                     log("Preparing to send api request", msg);
